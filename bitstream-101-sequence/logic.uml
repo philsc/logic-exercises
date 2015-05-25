@@ -1,0 +1,25 @@
+@startuml
+
+state "Idle" as idle
+idle : Out = 0
+
+state "First bit\nmatches" as bit0
+bit0 : Out = 0
+
+state "Second bit\nmatches" as bit1
+bit1 : Out = 0
+
+state "Third bit\nmatches" as bit2
+bit2 : Out = 1
+
+[*] -> idle
+idle --> idle : Receive 0
+idle --> bit0 : Receive 1
+bit0 --> bit0 : Receive 1
+bit0 --> bit1 : Receive 0
+bit1 --> idle : Recieve 0
+bit1 --> bit2 : Receive 1
+bit2 --> bit0 : Receive 1
+bit2 --> idle : Receive 0
+
+@enduml
