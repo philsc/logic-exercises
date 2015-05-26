@@ -20,9 +20,10 @@ initial begin
   #5 oRST = 0;  // Assert the reset.
   #5 oRST = 1;  // De-assert the reset.
   #20 oIN = 1;
-  #5 oIN = 0;
-  #5 oIN = 1;
-  #100 $finish
+  #10 oIN = 0;
+  #10 oIN = 1;
+  #10 oIN = 0;
+  #100 $finish;
 end
 
 // Toggle clock every 5 ticks.
@@ -30,6 +31,6 @@ always begin
   #5 oCLK = ~oCLK;
 end
 
-logic_101(oCLK, oRST, oIN, iOUT);
+logic_101 U_logic_101(oCLK, oRST, oIN, iOUT);
 
 endmodule

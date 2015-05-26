@@ -16,9 +16,9 @@ reg oOUT;
 reg [1:0] state;
 
 // Functionality
-always @ (posedge clock)
+always @ (posedge iCLK)
 begin
-  if (reset == 1'b0) begin
+  if (iRST == 1'b0) begin
     oOUT <= 1'b0;
     state <= 2'b00;
   end
